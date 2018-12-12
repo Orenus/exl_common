@@ -1,3 +1,4 @@
+exl_base
 mock==2.0.0
 invoke
 bumpversion
