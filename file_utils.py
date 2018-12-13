@@ -1,6 +1,6 @@
 import os
 
-from exl_logger import ExlLogger
+from exl_base_app.exl_logger import ExlLogger
 
 
 def rotate_folder(rotate_dir_path, max_kept_files):
