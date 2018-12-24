@@ -1,5 +1,5 @@
 from invoke import task
-
+import os
 
 ####### PUBLISH ########################
 # invoke publish -r exl_nexus_dev
@@ -14,6 +14,7 @@ from invoke import task
 
 # you can also run muliple commands in the same line. ex. "invoke clean install test bump_build"
 # for additional info see http://docs.pyinvoke.org
+
 
 @task
 def commit(runner):
