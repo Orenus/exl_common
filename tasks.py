@@ -59,12 +59,16 @@ def bump_major(runner):
     commit(runner)
 
 
+def publishCommand(repo):
+    return "python setup.py sdist upload -r {} {}".format(repo, os.environ['PYDIST_ARGS'])
+
+
 @task(bump_build, help={'repo': 'repository name. as configured in your .pypirc'})
 def publish(runner, repo):
     """
     this will build and publish this module's source distribution file into artifact repository name indicated by the --repo parameter
     """
-    runner.run("python setup.py sdist upload -r {}".format(repo))
+    runner.run(publishCommand(repo))
 
 
 @task(bump_minor, help={'repo': 'repository name. as configured in your .pypirc'})
@@ -72,7 +76,7 @@ def publish_minor(runner, repo):
     """
     this will build, bump minor then publish this module's source distribution file into artifact repository name indicated by the --repo parameter
     """
-    runner.run("python setup.py sdist upload -r {}".format(repo))
+    runner.run(publishCommand(repo))
 
 
 @task(bump_major, help={'repo': 'repository name. as configured in your .pypirc'})
@@ -80,7 +84,7 @@ def publish_major(runner, repo):
     """
     this will build, bump major then publish this module's source distribution file into artifact repository name indicated by the --repo parameter
     """
-    runner.run("python setup.py sdist upload -r {}".format(repo))
+    runner.run(publishCommand(repo))
 
 
 @task
@@ -88,7 +92,7 @@ def publish_now(runner, repo):
     """
     this will publish the current module's source distribution file without bumping version - into artifact repository name indicated by the --repo parameter
     """
-    runner.run("python setup.py sdist upload -r {}".format(repo))
+    runner.run(publishCommand(repo))
 
 
 @task
