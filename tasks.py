@@ -61,7 +61,8 @@ def bump_major(runner):
 
 
 def publishCommand(repo):
-    return "python setup.py sdist upload -r {} {}".format(repo, os.environ['PYDIST_ARGS'])
+    additional_args = "" if not 'PYDIST_ARGS' in os.environ else os.environ['PYDIST_ARGS']
+    return "python setup.py sdist upload -r {} {}".format(repo, additional_args)
 
 
 @task(bump_build, help={'repo': 'repository name. as configured in your .pypirc'})
