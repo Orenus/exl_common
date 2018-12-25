@@ -16,7 +16,7 @@ setup(
         'invoke',
         'bumpversion',
     ],
-    version='0.0.12',
+    version='0.0.13',
     url='http://github.com/prodops/package_example',
     author='Oren Sea',
     author_email='oren@prodops.io',
