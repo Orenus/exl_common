@@ -10,6 +10,12 @@ setup(
     classifiers=[
         'Private :: Do Not Upload to pypi server',
     ],
+    install_requires=[
+        'exl_base',
+        'mock==2.0.0',
+        'invoke',
+        'bumpversion',
+    ],
     version='0.0.12',
     url='http://github.com/prodops/package_example',
     author='Oren Sea',
