@@ -65,12 +65,13 @@ def publishCommand(repo):
     return "python setup.py sdist upload -r {} {}".format(repo, additional_args)
 
 
-@task(bump_build, help={'repo': 'repository name. as configured in your .pypirc'})
-def publish(runner, repo):
+@task
+def publish(runner):
     """
     this will build and publish this module's source distribution file into artifact repository name indicated by the --repo parameter
     """
-    runner.run(publishCommand(repo))
+    additional_args = "" if not 'PYDIST_ARGS' in os.environ else os.environ['PYDIST_ARGS']
+    runner.run("python setup.py sdist upload -r $ARTIFACTORY_REPO_KEY {}".format(additional_args))
 
 
 @task(bump_minor, help={'repo': 'repository name. as configured in your .pypirc'})
@@ -111,3 +112,12 @@ def install(runner):
     this will install all required packagaes listed in requirements.txt file
     """
     runner.run("pip install -r requirements.txt")
+
+
+@task
+def build_image(runner):
+  runner.run("docker build . -t exl_helpers --rm")
+
+@task(build_image)
+def run_image(runner):
+  runner.run("docker run -i exl_helpers")

@@ -12,9 +12,9 @@ setup(
     ],
     install_requires=[
         'exl_base',
-        'mock==2.0.0',
         'invoke',
         'bumpversion',
+        'paramiko',
     ],
     version='0.0.13',
     url='http://github.com/prodops/package_example',
