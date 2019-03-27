@@ -116,8 +116,8 @@ def install(runner):
 
 @task
 def build_image(runner):
-  runner.run("docker build . -t exl_helpers --rm")
+  runner.run("docker build . -t exl_common --rm")
 
 @task(build_image)
 def run_image(runner):
-  runner.run("docker run -i exl_helpers")
+  runner.run("docker run -i exl_common")
