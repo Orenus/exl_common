@@ -5,6 +5,7 @@ from setuptools import setup
 setup(
     name='exl_common',
     packages=['exl_common'],
+    package_dir={'exl_common': '.'},
     description='Base package for helper functions and classes for exl_base_apps',
     classifiers=[
         'Private :: Do Not Upload to pypi server',
