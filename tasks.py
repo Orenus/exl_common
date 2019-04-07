@@ -122,7 +122,6 @@ def build_image(runner):
 def run_image(runner):
   runner.run("docker run -i exl_common")
 
-
 @task
 def publish_image(runner):
   if (not 'GIT_TOKEN' in os.environ):
@@ -130,4 +129,3 @@ def publish_image(runner):
 
   git_token = os.environ['GIT_TOKEN']
   runner.run("docker build . --build-arg GIT_TOKEN={} -f publish.dockerfile --rm --no-cache ".format(git_token))
-
