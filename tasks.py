@@ -121,3 +121,4 @@ def build_image(runner):
 @task(build_image)
 def run_image(runner):
   runner.run("docker run -i exl_common")
+

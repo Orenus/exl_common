@@ -41,3 +41,4 @@ class ExlFileUtils:
                 return
 
             folder_files = get_folder_details()
+
