@@ -16,7 +16,7 @@ setup(
         'bumpversion',
         'paramiko',
     ],
-    version='0.0.1',
+    version='0.0.2',
     url='http://github.com/prodops/package_example',
     author='Oren Sea',
     author_email='oren@prodops.io',
